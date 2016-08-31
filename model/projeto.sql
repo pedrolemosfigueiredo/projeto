@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2016 at 08:26 AM
+-- Generation Time: Aug 30, 2016 at 10:07 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `aluno` (
   `numero` int(6) NOT NULL,
-  `passe` varchar(50) NOT NULL,
-  `nome` varchar(25) NOT NULL
+  `nUser` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -119,8 +118,19 @@ CREATE TABLE `nota` (
 
 CREATE TABLE `professor` (
   `numero` int(5) NOT NULL,
-  `passe` int(50) NOT NULL,
-  `nome` varchar(25) NOT NULL
+  `nUser` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `numero` int(6) NOT NULL,
+  `passe` varchar(100) NOT NULL,
+  `nome` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -132,7 +142,8 @@ CREATE TABLE `professor` (
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`numero`),
-  ADD UNIQUE KEY `numero` (`numero`);
+  ADD UNIQUE KEY `numero` (`numero`),
+  ADD KEY `nUser` (`nUser`);
 
 --
 -- Indexes for table `alunodisciplina`
@@ -185,7 +196,14 @@ ALTER TABLE `nota`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`numero`),
-  ADD UNIQUE KEY `numero` (`numero`);
+  ADD UNIQUE KEY `numero` (`numero`),
+  ADD KEY `nUser` (`nUser`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`numero`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -232,8 +250,19 @@ ALTER TABLE `nota`
 ALTER TABLE `professor`
   MODIFY `numero` int(5) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `numero` int(6) NOT NULL AUTO_INCREMENT;
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `aluno`
+--
+ALTER TABLE `aluno`
+  ADD CONSTRAINT `aluno_ibfk_1` FOREIGN KEY (`nUser`) REFERENCES `user` (`numero`);
 
 --
 -- Constraints for table `alunodisciplina`
@@ -268,6 +297,12 @@ ALTER TABLE `disciplina`
 ALTER TABLE `nota`
   ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`nAlunoDisciplina`) REFERENCES `alunodisciplina` (`numero`),
   ADD CONSTRAINT `nota_ibfk_2` FOREIGN KEY (`nAvaliacao`) REFERENCES `avaliacao` (`numero`);
+
+--
+-- Constraints for table `professor`
+--
+ALTER TABLE `professor`
+  ADD CONSTRAINT `professor_ibfk_1` FOREIGN KEY (`nUser`) REFERENCES `user` (`numero`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
