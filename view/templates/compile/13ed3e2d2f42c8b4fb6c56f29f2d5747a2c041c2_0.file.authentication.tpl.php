@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-02 00:34:48
+/* Smarty version 3.1.30, created on 2016-09-02 15:15:14
   from "C:\wamp64\www\daw\projeto\view\templates\authentication.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57c8c928db73e3_24938856',
+  'unifunc' => 'content_57c99782976ff6_41301847',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '13ed3e2d2f42c8b4fb6c56f29f2d5747a2c041c2' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\authentication.tpl',
-      1 => 1472776486,
+      1 => 1472829310,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57c8c928db73e3_24938856 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57c99782976ff6_41301847 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-pt">
@@ -75,18 +75,24 @@ function content_57c8c928db73e3_24938856 (Smarty_Internal_Template $_smarty_tpl)
 		  <p class="lead">Esta página destina-se apenas a alunos e professores do Instituto Politécnico de Beja.</p>
 		  <div class="jumbotron">
 			<div class="container">
+				<?php if ($_smarty_tpl->tpl_vars['showAuthenticationString']->value) {?>
+					<p class="text-danger"><?php echo $_smarty_tpl->tpl_vars['authenticationString']->value;?>
+</p>
+				 <?php }?>
 				<p>Para entrar introduza os seu nome de utilizador e senha:</p>
 				<form class="form-signin" role="form" method="post" action="index.php">
 					<label for="username">Nome de utilizador</label>
-					<input type="email" id="username" class="form-control" placeholder="username" required autofocus>
+					<input type="text" id="username" name="username" class="form-control" placeholder="username" required autofocus>
 					<label for="password">Senha</label>
-					<input type="password" id="password" class="form-control" placeholder="Password" required>
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 					<div class="checkbox">
 					  <label>
 						<input type="checkbox" value="remember-me"> Remember me
 					  </label>
 					</div>
-					<button class="btn btn-lg btn-primary btn-block" id"loginButton" type="submit">Sign in</button>
+					<button class="btn btn-lg btn-primary btn-block" id"loginButton" name="login" type="submit">
+						Sign in
+					</button>
 				</form>
 			</div>
 		  </div>

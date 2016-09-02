@@ -11,7 +11,10 @@ class AuthenticationView{
 		$this->smarty->compile_dir = './view/templates/compile/';
 	}
 	public function drawAuthenticationPage($situation){
-		$this->smarty->assign('authenticationString', $situation);
+		if($situation != 'normal'){
+			$this->smarty->assign('showAuthenticationString', true);
+			$this->smarty->assign('authenticationString', $situation);
+		}else{$this->smarty->assign('showAuthenticationString', false);}
 		$this->smarty->display('authentication.tpl');
 	}
 }

@@ -14,7 +14,10 @@ require_once('model/DataBaseConnection.php');
 		}
 		public function checkIfIsAluno($username){
 			$this->db->connect();
-			$query = "select * from 'aluno' where nUser = '".$username."'";
+			if(!is_numeric($username)){
+				return false;
+			}
+			$query = "select * from aluno where nUser = ".$username;
 			$result = mysqli_query($this->db->getConnection(), $query);
 			if(mysqli_num_rows($result) != 0){
 				$row = mysqli_fetch_array($result);
@@ -27,25 +30,29 @@ require_once('model/DataBaseConnection.php');
 		}
 		public function checkIfIsProfessor($username){
 			$this->db->connect();
-			$query = "select * from 'professor' where nUser = '".$username."'";
+			if(!is_numeric($username)){
+				return false;
+			}
+			$query = "select * from professor where nUser = ".$username;
 			$result = mysqli_query($this->db->getConnection(), $query);
 			if(mysqli_num_rows($result) != 0){
 				$row = mysqli_fetch_array($result);
 				$this->db->disconnect();
 				return true;
 			}else{
+				
 				$this->db->disconnect();
 				return false;
 			}
 		}
 		public function getUserName($username){
 			$this->db->connect();
-			$query = "SELECT nome FROM `user` WHERE numero = '".$username."'";
+			$query = "SELECT nome FROM user WHERE numero = ".$username;
 			$result = mysqli_query($this->db->getConnection(), $query);
 			if($result){
 				$row = mysqli_fetch_array($result);
 				$this->db->disconnect();
-				return new $row['nome'];
+				return $row['nome'];
 			} else{
 				$this->db->disconnect();
 				return 'error';
@@ -53,12 +60,12 @@ require_once('model/DataBaseConnection.php');
 		}
 		public function getProfessorID($username){
 			$this->db->connect();
-			$query = "SELECT numero FROM `professor` WHERE nUser = '".$username."'";
+			$query = "SELECT numero FROM `professor` WHERE nUser = ".$username;
 			$result = mysqli_query($this->db->getConnection(), $query);
 			if($result){
 				$row = mysqli_fetch_array($result);
 				$this->db->disconnect();
-				return new $row['numero'];
+				return $row['numero'];
 			} else{
 				$this->db->disconnect();
 				return 'error';
@@ -66,7 +73,13 @@ require_once('model/DataBaseConnection.php');
 		}
 		private function getUserNameIsValid($username){
 			$this->db->connect();
-			$query = "SELECT * FROM `user` WHERE numero = '".$username."'";
+			if(is_numeric($username)){
+				$username = (int)$username;
+			}else{
+				$this->db->disconnect();
+				return false;
+			}
+			$query = "SELECT * FROM user WHERE numero = ".$username;
 			$result = mysqli_query($this->db->getConnection(), $query);
 			if(mysqli_num_rows($result) != 0){
 				$row = mysqli_fetch_array($result);
@@ -79,7 +92,7 @@ require_once('model/DataBaseConnection.php');
 		}
 		private function getPasswordIsValid($username, $password){
 			$this->db->connect();
-			$query = "select * from user where numero = '".$username."' and passe = '".$password."'";
+			$query = "select * from user where numero = ".$username." and passe = '".$password."'";
 			$result = mysqli_query($this->db->getConnection(), $query);
 			if(mysqli_num_rows($result) != 0){
 				$row = mysqli_fetch_array($result);

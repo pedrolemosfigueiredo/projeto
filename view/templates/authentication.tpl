@@ -51,18 +51,23 @@
 		  <p class="lead">Esta página destina-se apenas a alunos e professores do Instituto Politécnico de Beja.</p>
 		  <div class="jumbotron">
 			<div class="container">
+				{if $showAuthenticationString}
+					<p class="text-danger">{$authenticationString}</p>
+				 {/if}
 				<p>Para entrar introduza os seu nome de utilizador e senha:</p>
 				<form class="form-signin" role="form" method="post" action="index.php">
 					<label for="username">Nome de utilizador</label>
-					<input type="email" id="username" class="form-control" placeholder="username" required autofocus>
+					<input type="text" id="username" name="username" class="form-control" placeholder="username" required autofocus>
 					<label for="password">Senha</label>
-					<input type="password" id="password" class="form-control" placeholder="Password" required>
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 					<div class="checkbox">
 					  <label>
 						<input type="checkbox" value="remember-me"> Remember me
 					  </label>
 					</div>
-					<button class="btn btn-lg btn-primary btn-block" id"loginButton" type="submit">Sign in</button>
+					<button class="btn btn-lg btn-primary btn-block" id"loginButton" name="login" type="submit">
+						Sign in
+					</button>
 				</form>
 			</div>
 		  </div>

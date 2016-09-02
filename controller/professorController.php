@@ -11,7 +11,7 @@ class ProfessorController{
 	}
 	
 	public function action($username){
-		$professorName = $this->UserModel->getUserName($username);
+		$professorName = $this->userModel->getUserName($username);
 		$professorID = $this->userModel->getProfessorID($username);
 		if($_SERVER['REQUEST_METHOD']=='GET'){
 			
@@ -19,6 +19,7 @@ class ProfessorController{
 			$professorID = $this->userModel->getProfessorID($username);
 			$professorName = $this->UserModel->getUserName($username);
 			$disciplinas = $this->disciplinaModel->getDisciplinasLecionadas($professorID);
+			$this->drawDisciplineButtons($disciplinas);
 			
 		}
 		
