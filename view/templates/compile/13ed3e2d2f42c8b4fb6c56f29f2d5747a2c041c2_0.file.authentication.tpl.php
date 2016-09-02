@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2016-09-02 00:34:48
+  from "C:\wamp64\www\daw\projeto\view\templates\authentication.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_57c8c928db73e3_24938856',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '13ed3e2d2f42c8b4fb6c56f29f2d5747a2c041c2' => 
+    array (
+      0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\authentication.tpl',
+      1 => 1472776486,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_57c8c928db73e3_24938856 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="pt-pt">
     <head>
@@ -67,8 +91,16 @@
 			</div>
 		  </div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
-		<script src="view/bootstrap/js/bootstrap.min.js"></script>
+		<?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+>window.jQuery || document.write('<?php echo '<script'; ?>
+ src="view/bootstrap/js/jquery.min.js"><\/script>')<?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+ src="view/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 	</body>
-</html>
+</html><?php }
+}

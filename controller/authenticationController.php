@@ -5,9 +5,9 @@ require_once('controller/alunoController.php');
 require_once('controller/professorController.php');
 require_once('view/authenticationView.php');
 class AuthenticationController{
-	$var $userModel, $alunoController, $professorController, $authenticationView;
+	var $userModel, $alunoController, $professorController, $authenticationView;
 	public function __construct(){
-		$this->$userModel = new UserModel();
+		$this->userModel = new UserModel();
 		$this->alunoController = new AlunoController();
 		$this->professorController = new ProfessorController();
 		$this->authenticationView = new AuthenticationView();
@@ -15,9 +15,9 @@ class AuthenticationController{
 	public function action(){
 		if(isset($_SESSION['loggedin'])&& $_SESSION['loggedin'] == true){
 			if($_SESSION['type'] == 'aluno'){
-				$this->alunoController->action();
-			}else if($_SESSION['type'] = 'professor';){
-				$this->professorController->action();
+				$this->alunoController->action($_SESSION[user]);
+			}else if($_SESSION['type'] == 'professor'){
+				$this->professorController->action($_SESSION[user]);
 			}
 		}else if(!isset($_SESSION['situation'])){
 			$this->authenticationView->drawAuthenticationPage('normal');
@@ -35,10 +35,10 @@ class AuthenticationController{
 					$userType = $this->userType($username);
 					if($userType == 'aluno'){
 						$_SESSION['type'] = 'aluno';
-						$this->alunoController->action();
+						$this->alunoController->action($userName);
 					}else if($userType == 'professor'){
 						$_SESSION['type'] = 'professor';
-						$this->professorController->action();
+						$this->professorController->action($userName);
 					}
 				}else if($authentication == 'password fail'){
 					$_SESSION['situation'] = 'password fail';

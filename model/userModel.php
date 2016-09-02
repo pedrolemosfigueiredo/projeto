@@ -1,7 +1,7 @@
 <?php
 require_once('model/DataBaseConnection.php');
 	class UserModel{
-		$var db;
+		var $db;
 		public function __construct(){
 			$this->db = new DataBaseConnection();
 		}
@@ -12,7 +12,7 @@ require_once('model/DataBaseConnection.php');
 				}else{return 'password fail';}
 			}else{return 'username fail';}
 		}
-		public funtion checkIfIsAluno($username){
+		public function checkIfIsAluno($username){
 			$this->db->connect();
 			$query = "select * from 'aluno' where nUser = '".$username."'";
 			$result = mysqli_query($this->db->getConnection(), $query);
@@ -36,6 +36,32 @@ require_once('model/DataBaseConnection.php');
 			}else{
 				$this->db->disconnect();
 				return false;
+			}
+		}
+		public function getUserName($username){
+			$this->db->connect();
+			$query = "SELECT nome FROM `user` WHERE numero = '".$username."'";
+			$result = mysqli_query($this->db->getConnection(), $query);
+			if($result){
+				$row = mysqli_fetch_array($result);
+				$this->db->disconnect();
+				return new $row['nome'];
+			} else{
+				$this->db->disconnect();
+				return 'error';
+			}
+		}
+		public function getProfessorID($username){
+			$this->db->connect();
+			$query = "SELECT numero FROM `professor` WHERE nUser = '".$username."'";
+			$result = mysqli_query($this->db->getConnection(), $query);
+			if($result){
+				$row = mysqli_fetch_array($result);
+				$this->db->disconnect();
+				return new $row['numero'];
+			} else{
+				$this->db->disconnect();
+				return 'error';
 			}
 		}
 		private function getUserNameIsValid($username){
