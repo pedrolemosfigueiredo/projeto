@@ -13,13 +13,13 @@ class ProfessorController{
 	public function action($username){
 		$professorName = $this->userModel->getUserName($username);
 		$professorID = $this->userModel->getProfessorID($username);
-		if($_SERVER['REQUEST_METHOD']=='GET'){
+		if($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['disciplina'])){
 			
 		}else{
 			$professorID = $this->userModel->getProfessorID($username);
-			$professorName = $this->UserModel->getUserName($username);
+			$professorName = $this->userModel->getUserName($username);
 			$disciplinas = $this->disciplinaModel->getDisciplinasLecionadas($professorID);
-			$this->drawDisciplineButtons($disciplinas);
+			$this->professorView->drawDisciplineButtons($disciplinas);
 			
 		}
 		

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-PT">
     <head>
         <meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Gestão de notas</title>
 		<link rel="stylesheet" href="view/bootstrap/css/bootstrap.min.css">
 		<link href="view/css/navbar.css" rel="stylesheet">
+		<link href="view/css/jumbotron.css" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top">
@@ -42,7 +44,19 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+	<div class="container disciplinas">
+		<div class="row">
+			<form method="get">
+				{for $i=0 to $nDisciplinas - 1}
+				<div class="col-lg-4">
+					<button type="submit" name="disciplinas" value="{$disciplinas[$i][0]}" class="btn btn-info">{$disciplinas[$i][0]}{$disciplinas[$i][1]}</button>
+				</div>
+				{/for}
+			</form>
+		</div>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
 	<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
+</html>
