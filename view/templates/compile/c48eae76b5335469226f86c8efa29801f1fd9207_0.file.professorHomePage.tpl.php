@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-03 23:54:22
+/* Smarty version 3.1.30, created on 2016-09-09 20:30:18
   from "C:\wamp64\www\daw\projeto\view\templates\professorHomePage.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57cb62aec5aec3_87844622',
+  'unifunc' => 'content_57d31bda8b9474_27505644',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c48eae76b5335469226f86c8efa29801f1fd9207' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\professorHomePage.tpl',
-      1 => 1472946861,
+      1 => 1473453016,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57cb62aec5aec3_87844622 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57d31bda8b9474_27505644 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -78,8 +78,7 @@ for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iterat
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
 				<div class="col-lg-4">
 					<button type="submit" name="disciplinas" value="<?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
-" class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][0];
-echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
+" class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
 </button>
 				</div>
 				<?php }
