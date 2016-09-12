@@ -17,8 +17,13 @@ class ProfessorView{
 		$this->smarty->display('professorHomePage.tpl');
 	}
 	
-	public function drawEvaluationButtons($disciplina){
+	public function drawEvaluationButtons($disciplina, $evaluations){
 		$this->smarty->assign('disciplina', $disciplina);
+		$this->smarty->assign('evaluations', $evaluations);
+		$numberOfEvaluations = count($evaluations);
+		$this->smarty->assign('nEvaluations', $numberOfEvaluations);
+		$this->smarty->display('professorDisciplina.tpl');
 	}
+	
 }
 ?>

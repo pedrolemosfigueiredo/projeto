@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-12 20:35:23
-  from "C:\wamp64\www\daw\projeto\view\templates\professorHomePage.tpl" */
+/* Smarty version 3.1.30, created on 2016-09-12 20:48:19
+  from "C:\wamp64\www\daw\projeto\view\templates\professorDisciplina.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57d7118b85b697_63571359',
+  'unifunc' => 'content_57d71493f20646_75747717',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c48eae76b5335469226f86c8efa29801f1fd9207' => 
+    '7bdb862605779daafbd1d358b865bf23f14e5086' => 
     array (
-      0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\professorHomePage.tpl',
-      1 => 1473712508,
+      0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\professorDisciplina.tpl',
+      1 => 1473713298,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57d7118b85b697_63571359 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57d71493f20646_75747717 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -72,14 +72,15 @@ function content_57d7118b85b697_63571359 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row">
 			<form method="get">
 				<?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['nDisciplinas']->value-1+1 - (0) : 0-($_smarty_tpl->tpl_vars['nDisciplinas']->value-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['nEvaluations']->value-1+1 - (0) : 0-($_smarty_tpl->tpl_vars['nEvaluations']->value-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
 				<div class="col-lg-4">
-					<button type="submit" name="disciplina" value="<?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
-" class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
-</button>
+					<button type="submit" name="evaluation" value="<?php echo $_smarty_tpl->tpl_vars['evaluations']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
+" class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['evaluations']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
+ (<?php echo $_smarty_tpl->tpl_vars['evaluations']->value[$_smarty_tpl->tpl_vars['i']->value][2];?>
+)</button>
 				</div>
 				<?php }
 }

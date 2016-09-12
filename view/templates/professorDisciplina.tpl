@@ -47,9 +47,9 @@
 	<div class="container disciplinas">
 		<div class="row">
 			<form method="get">
-				{for $i=0 to $nDisciplinas - 1}
+				{for $i=0 to $nEvaluations - 1}
 				<div class="col-lg-4">
-					<button type="submit" name="disciplinas" value="{$disciplinas[$i][0]}" class="btn btn-info">{$disciplinas[$i][1]}</button>
+					<button type="submit" name="evaluation" value="{$evaluations[$i][0]}" class="btn btn-info">{$evaluations[$i][1]} ({$evaluations[$i][2]})</button>
 				</div>
 				{/for}
 			</form>
