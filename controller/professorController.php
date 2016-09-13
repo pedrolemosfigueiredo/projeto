@@ -17,6 +17,11 @@ class ProfessorController{
 			$disciplina = $_GET['disciplina'];
 			$evaluations = $this->disciplinaModel->getEvaluations($disciplina);
 			$this->professorView->drawEvaluationButtons($disciplina, $evaluations);
+		}else if($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['evaluation'])){
+			$evaluation = $_GET['evaluation'];
+			$notas = this->disciplinaModel->getNotas($evaluation);
+			$disciplina = this->disciplinaModel->getDisciplinaFromEvaluation($evaluation);
+			$this->professorView->drawEvaluationForm($evaluation, $notas);
 		}else{
 			$professorID = $this->userModel->getProfessorID($username);
 			$professorName = $this->userModel->getUserName($username);

@@ -5,7 +5,28 @@ class DisciplinaModel{
 	public function __construct(){
 		$this->db = new DataBaseConnection();
 	}
-	
+	public function getDisciplinaFromEvaluation($evaluation){
+		$this->db->connect();
+		$disciplinas = array();
+		$query = "select nDisciplina from evaluation where numero = ".$evaluation;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		$this->db->disconnect();
+		if($result){
+			$row = $result->fetch_assoc();
+			return $this->getDisciplinaName($row['nDisciplina']);
+		}
+	}
+	public function($nDisciplina){
+		$this->db->connect();
+		$disciplinas = array();
+		$query = "select nome from disciplina where numero = ".$nDisciplina;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		$this->db->disconnect();
+		if($result){
+			$row = $result->fetch_assoc();
+			return ($row['nome']);
+		}
+	}
 	public function getDisciplinasLecionadas($professorid){
 		$this->db->connect();
 		$disciplinas = array();
@@ -45,6 +66,9 @@ class DisciplinaModel{
 			$this->db->disconnect();
 			return false;
 		}
+	}
+	public function drawEvaluationForm($evaluation){
+		
 	}
 }
 ?>
