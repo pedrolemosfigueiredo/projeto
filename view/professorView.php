@@ -24,6 +24,17 @@ class ProfessorView{
 		$this->smarty->assign('nEvaluations', $numberOfEvaluations);
 		$this->smarty->display('professorDisciplina.tpl');
 	}
+	public function drawEvaluationForm($disciplina, $evaluation, $notas){
+		$this->smarty->assign('disciplina', $disciplina);
+		$this->smarty->assign('evaluation', $evaluation);
+		$numberOfNotas = count($notas);
+		$this->smarty->assign('nNotas', $numberOfNotas);
+		$this->smarty->assign('notas', $notas);
+		$this->smarty->display('professorEvaluation.tpl');
+	}
+	public function drawEvaluationChanges($disciplina, $evaluation, $notas){
+		
+	}
 	
 }
 ?>

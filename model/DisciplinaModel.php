@@ -16,7 +16,7 @@ class DisciplinaModel{
 			return $this->getDisciplinaName($row['nDisciplina']);
 		}
 	}
-	public function($nDisciplina){
+	public function getDisciplinaName($nDisciplina){
 		$this->db->connect();
 		$disciplinas = array();
 		$query = "select nome from disciplina where numero = ".$nDisciplina;
@@ -67,8 +67,73 @@ class DisciplinaModel{
 			return false;
 		}
 	}
-	public function drawEvaluationForm($evaluation){
-		
+	public function getNotas($evaluation){
+		$this->db->connect();
+		$notas = array();
+		$query = "select * from nota where nAvaliacao = ".$evaluation;
+		$i = 0;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			while($row = mysqli_fetch_array($result)) {
+				$nomeAluno = $this->getNomeAlunoWithADID($row['nAlunoDisciplina']);
+				$notas[$i] = array($row['numero'], $row['nota'], $nomeAluno);
+				$i++;
+			}
+			return $notas;
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'Esta disciplina não é lecionada por este professor';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	private function getAlunoWithAD($alunoDisciplina){
+		$this->db->connect();
+		$query = "select nAluno from alunodisciplina where numero = ".$alunoDisciplina;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['nAluno'];	
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'não existe aluno';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	private function getUSerIdFromAluno($alunoID){
+		$this->db->connect();
+		$query = "select * from aluno where numero = ".$alunoID;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['nUser'];	
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'não existe utilizador';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	private function getNomeAlunoWithADID($adID){
+		$alunoID = $this->getAlunoWithAD($adID);
+		$userID = $this->getUSerIdFromAluno($alunoID);
+		$this->db->connect();
+		$query = "select nome from user where numero = ".$userID;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['nome'];	
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'não existe utilizador';
+			$this->db->disconnect();
+			return false;
+		}
 	}
 }
 ?>
