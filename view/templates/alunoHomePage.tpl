@@ -9,8 +9,10 @@
 		<link rel="stylesheet" href="view/bootstrap/css/bootstrap.min.css">
 		<link href="view/css/navbar.css" rel="stylesheet">
 		<link href="view/css/jumbotron.css" rel="stylesheet">
+		<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 	</head>
 	<body>
+	<!-- <div class="container"> -->
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 			  <div class="navbar-header">
@@ -46,21 +48,20 @@
 			  </div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->
 		</nav>
-		<div class="container disciplinas">
-			<div class="row">
-				<form method="post" action="index.php">
-					{for $i=0 to $nNotas - 1}
-						<label for="nota[{$notas[$i][0]}]">{$notas[$i][2]}</label>
-						<input type="number" name="nota[{$notas[$i][0]}]" min="0" max="20" value="{$notas[$i][1]}">
-					{/for}
-					<input type="hidden" name="evaluation" value="{$evaluation} "/>
-					<input type="submit" name="changeGrades" value="Guardar"></input>
-					<input type="submit" value="Cancelar"></input>
-				</form>
-			</div>
+	<!-- </div> -->
+	<div class="container">
+		<div class="row">
+			<form action="index.php" method="get">
+				{for $i=0 to $nDisciplinas - 1}
+				<div class="col-lg-4">
+					<button type="submit" name="disciplina" value="{$disciplinas[$i][0]}" class="btn btn-info">{$disciplinas[$i][1]}</button>
+				</div>
+				{/for}
+			</form>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
-		<script src="view/bootstrap/js/bootstrap.min.js"></script>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
+	<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

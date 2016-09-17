@@ -23,12 +23,19 @@ class ProfessorController{
 			$disciplina = $this->disciplinaModel->getDisciplinaFromEvaluation($evaluation);
 			$this->professorView->drawEvaluationForm($disciplina, $evaluation, $notas);
 		}
-		/* else if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['changeGrades'])){
+		else if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['changeGrades'])){
+			$i = 0;
+			$notasNovas = array();
+			foreach($_POST['nota'] as $gradeID=>$grade){
+				$notasNovas[$i] = array($gradeID, $grade);
+				$i++;
+			}
 			$evaluation = $_POST['evaluation'];
-			$notas = this->disciplinaModel->getNotas($evaluation);
-			$disciplina = this->disciplinaModel->getDisciplinaFromEvaluation($evaluation);
-			$this->professorView->drawEvaluationChanges($disciplina, $evaluation, $notas);
-		} */
+			$disciplina = $this->disciplinaModel->getDisciplinaFromEvaluation($evaluation);
+			$save = $this->disciplinaModel->changeGrades($notasNovas);
+			$notas = $this->disciplinaModel->getNotas($evaluation);
+			$this->professorView->drawEvaluationForm($disciplina, $evaluation, $notas);
+		}
 		else{
 			/* $professorID = $this->userModel->getProfessorID($username);
 			$professorName = $this->userModel->getUserName($username); */

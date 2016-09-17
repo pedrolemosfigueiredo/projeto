@@ -50,7 +50,7 @@ class DisciplinaModel{
 	public function getDisciplinasAluno($alunoID){
 		$this->db->connect();
 		$disciplinas = array();
-		$disciplinasID = $this->getDisciplinasIDsFromADs($alunoID);
+		//$disciplinasID = $this->getDisciplinasIDsFromADs($alunoID);
 		$query = "select * from disciplina where disciplina.numero in (select alunodisciplina.nDisciplina from alunodisciplina where alunodisciplina.nAluno = ".$alunoID.")";
 		$i = 0;
 		$result = mysqli_query($this->db->getConnection(), $query);
@@ -63,7 +63,7 @@ class DisciplinaModel{
 			return $disciplinas;
 		} else {
 			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
-			echo 'este professor não tem disciplinas';
+			echo 'este aluno não tem disciplinas';
 			$this->db->disconnect();
 			return false;
 		}
@@ -108,6 +108,31 @@ class DisciplinaModel{
 			$this->db->disconnect();
 			return false;
 		}
+	}
+	public function getNotasWithAlunoAndDisciplina($alunoID, $disciplinaID){
+		$notas = array();
+		$ad = $this->getADWithAlunoAndDisciplina($alunoID, $disciplinaID);
+		$this->db->connect();
+		$query = "select * from nota where nAlunoDisciplina = ".$ad;
+		$i = 0;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			while($row = mysqli_fetch_array($result)) {
+				$nomeAvaliacao = $this->getNomeAvaliacaoWithID($row['nAvaliacao']);
+				$tipoAvaliacao = $this->gettipoAvaliacaoWithID($row['nAvaliacao']);
+				if(is_null($row['nota'])){$row['nota'] = "esta avaliação ainda não foi realizada";}
+				$notas[$i] = array($row['numero'], $row['nota'], $nomeAvaliacao, $tipoAvaliacao);
+				$i++;
+			}
+			return $notas;
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'Esta aluno não tem avaliações nesta disciplina ';
+			$this->db->disconnect();
+			return false;
+		}
+		
 	}
 	private function getAlunoWithAD($alunoDisciplina){
 		$this->db->connect();
@@ -159,13 +184,13 @@ class DisciplinaModel{
 	private function getDisciplinasIDsFromADs($adID){
 		$this->db->connect();
 		$disciplinas = array();
-		$query = "select * from alunoDisciplina where nAluno = ".$alunoID;
+		$query = "select * from alunoDisciplina where numero = ".$adID;
 		$i = 0;
 		$result = mysqli_query($this->db->getConnection(), $query);
 		if ($result) {
 			$this->db->disconnect();
 			while($row = mysqli_fetch_array($result)) {
-				$disciplinasID[$i] = $row['numero'];
+				$row = $disciplinasID[$i] = $row['nDisciplina'];
 				$i++;
 			}
 			return $disciplinasID;
@@ -174,6 +199,62 @@ class DisciplinaModel{
 			echo 'este aluno não tem disciplinas';
 			$this->db->disconnect();
 			return false;
+		}
+	}
+	private function getADWithAlunoAndDisciplina($alunoID, $disciplinaID){
+		$this->db->connect();
+		$disciplinas = array();
+		$query = "select * from alunodisciplina where nAluno = ".$alunoID." and nDisciplina = ".$disciplinaID;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['numero'];
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'este aluno não tem disciplinas';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	private function getNomeAvaliacaoWithID($avaliacaoID){
+		$this->db->connect();
+		$query = "select * from avaliacao where numero = ".$avaliacaoID;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['nome'];
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'erro a aceder ao nome das avaliações';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	private function gettipoAvaliacaoWithID($avaliacaoID){
+		$this->db->connect();
+		$query = "select * from avaliacao where numero = ".$avaliacaoID;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['tipo'];
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'erro a aceder ao nome das avaliações';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	public function changeGrades($notas){
+		$sizeNotas = count($notas);
+		for($i=0; $i<$sizeNotas; $i++){
+			$this->db->connect();
+			$query = "update nota set nota = ".$notas[$i][1]." where numero = ".$notas[$i][0];
+			$result = mysqli_query($this->db->getConnection(), $query);
+			if($result){return true;}
+			else{return false;}
 		}
 	}
 }

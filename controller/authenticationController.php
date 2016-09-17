@@ -13,33 +13,31 @@ class AuthenticationController{
 	}
 	public function action(){
 		//$_SESSION['loggedin']= false;
-		if($_SERVER['REQUEST_METHOD']=='POST'){
-			if(isset($_POST['login'])){
-				$username = $_POST['username'];
-				if(is_numeric($username)){
-					$username = (int)$username;
-				}
-				$password = $_POST['password'];
-				$authentication = $this->userModel->authentication($username,$password);
-				if($authentication == 'correct'){
-					$_SESSION['loggedin'] = true;
-					$_SESSION['user'] = $username;
-					$userType = $this->getUserType($username);
-					$_SESSION['type'] = $userType;
-					if($userType == 'aluno'){
-						$this->alunoController->action($username);
-					}else if($userType == 'professor'){
-						echo "hello";
-						$this->professorController->action($username);
-					}
-				}else if($authentication == 'password fail'){
-					$_SESSION['situation'] = 'password fail';
-					
-				}else{
-					$_SESSION['situation'] = 'invalid username';
-				}
-				//header('Location: '.$_SERVER['REQUEST_URI']);
+		if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['login'])){
+			$username = $_POST['username'];
+			if(is_numeric($username)){
+				$username = (int)$username;
 			}
+			$password = $_POST['password'];
+			$authentication = $this->userModel->authentication($username,$password);
+			if($authentication == 'correct'){
+				$_SESSION['loggedin'] = true;
+				$_SESSION['user'] = $username;
+				$userType = $this->getUserType($username);
+				$_SESSION['type'] = $userType;
+				if($userType == 'aluno'){
+					$this->alunoController->action($username);
+				}else if($userType == 'professor'){
+					echo "hello";
+					$this->professorController->action($username);
+				}
+			}else if($authentication == 'password fail'){
+				$_SESSION['situation'] = 'password fail';
+				
+			}else{
+				$_SESSION['situation'] = 'invalid username';
+			}
+			//header('Location: '.$_SERVER['REQUEST_URI']);
 		}else if(isset($_SESSION['loggedin'])&& $_SESSION['loggedin'] == true){
 			if($_SESSION['type'] == 'aluno'){
 				$this->alunoController->action($_SESSION["user"]);

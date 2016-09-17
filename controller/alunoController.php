@@ -13,7 +13,9 @@ class AlunoController{
 		$alunoName = $this->userModel->getUserName($username);
 		$alunoID = $this->userModel->getAlunoID($username);
 		if($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['disciplina'])){
-			
+			$disciplina = $_GET['disciplina'];
+			$notas = $this->disciplinaModel->getNotasWithAlunoAndDisciplina($alunoID, $disciplina);
+			$this->alunoView->drawNotas($notas);
 		}else{
 			$disciplinas = $this->disciplinaModel->getDisciplinasAluno($alunoID);
 			$this->alunoView->drawDisciplineButtons($disciplinas);

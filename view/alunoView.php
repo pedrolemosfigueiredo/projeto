@@ -16,5 +16,11 @@ class AlunoView{
 		$this->smarty->assign('nDisciplinas', $numberOfDisciplinas);
 		$this->smarty->display('alunoHomePage.tpl');
 	}
+	public function drawNotas($notas){
+		$this->smarty->assign('notas', $notas);
+		$numberOfNotas = count($notas);
+		$this->smarty->assign('nNotas', $numberOfNotas);
+		$this->smarty->display('alunoNotas.tpl');
+	}
 }
 ?>

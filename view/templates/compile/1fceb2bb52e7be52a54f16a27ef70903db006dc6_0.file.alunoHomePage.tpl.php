@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-17 20:25:58
-  from "C:\wamp64\www\daw\projeto\view\templates\professorEvaluation.tpl" */
+/* Smarty version 3.1.30, created on 2016-09-17 14:14:33
+  from "C:\wamp64\www\daw\projeto\view\templates\alunoHomePage.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57dda6d6e08572_04748878',
+  'unifunc' => 'content_57dd4fc9d1a382_94063579',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a900a2c4e0dd161dd4dd21a66168858d101be455' => 
+    '1fceb2bb52e7be52a54f16a27ef70903db006dc6' => 
     array (
-      0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\professorEvaluation.tpl',
-      1 => 1474143946,
+      0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoHomePage.tpl',
+      1 => 1474121670,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57dda6d6e08572_04748878 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57dd4fc9d1a382_94063579 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -33,8 +33,12 @@ function content_57dda6d6e08572_04748878 (Smarty_Internal_Template $_smarty_tpl)
 		<link rel="stylesheet" href="view/bootstrap/css/bootstrap.min.css">
 		<link href="view/css/navbar.css" rel="stylesheet">
 		<link href="view/css/jumbotron.css" rel="stylesheet">
+		<?php echo '<script'; ?>
+ src="../../assets/js/ie-emulation-modes-warning.js"><?php echo '</script'; ?>
+>
 	</head>
 	<body>
+	<!-- <div class="container"> -->
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 			  <div class="navbar-header">
@@ -70,39 +74,35 @@ function content_57dda6d6e08572_04748878 (Smarty_Internal_Template $_smarty_tpl)
 			  </div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->
 		</nav>
-		<div class="container disciplinas">
-			<div class="row">
-				<form method="post" action="index.php">
-					<?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['nNotas']->value-1+1 - (0) : 0-($_smarty_tpl->tpl_vars['nNotas']->value-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+	<!-- </div> -->
+	<div class="container">
+		<div class="row">
+			<form action="index.php" method="get">
+				<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['nDisciplinas']->value-1+1 - (0) : 0-($_smarty_tpl->tpl_vars['nDisciplinas']->value-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-						<label for="nota[<?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
-]"><?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][2];?>
-</label>
-						<input type="number" name="nota[<?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
-]" min="0" max="20" value="<?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
-">
-					<?php }
+				<div class="col-lg-4">
+					<button type="submit" name="disciplina" value="<?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
+" class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
+</button>
+				</div>
+				<?php }
 }
 ?>
 
-					<input type="hidden" name="evaluation" value="<?php echo $_smarty_tpl->tpl_vars['evaluation']->value;?>
- "/>
-					<input type="submit" name="changeGrades" value="Guardar"></input>
-					<input type="submit" value="Cancelar"></input>
-				</form>
-			</div>
+			</form>
 		</div>
-		<?php echo '<script'; ?>
+	</div>
+	<?php echo '<script'; ?>
  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><?php echo '</script'; ?>
 >
-		<?php echo '<script'; ?>
+    <?php echo '<script'; ?>
 >window.jQuery || document.write('<?php echo '<script'; ?>
  src="view/bootstrap/js/jquery.min.js"><\/script>')<?php echo '</script'; ?>
 >
-		<?php echo '<script'; ?>
+	<?php echo '<script'; ?>
  src="view/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
 	</body>

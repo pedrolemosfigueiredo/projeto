@@ -32,9 +32,6 @@ class ProfessorView{
 		$this->smarty->assign('notas', $notas);
 		$this->smarty->display('professorEvaluation.tpl');
 	}
-	public function drawEvaluationChanges($disciplina, $evaluation, $notas){
-		
-	}
 	
 }
 ?>
