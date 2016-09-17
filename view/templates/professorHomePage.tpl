@@ -22,7 +22,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Project name</a>
+				<a class="navbar-brand" href="index.php">Sistema de Gestão de notas</a>
 			  </div>
 			  <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -43,7 +43,7 @@
 				  </li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-				  <li><a href="../navbar-fixed-top/">Terminar sessão</a></li>
+				  <li><a href="controller/logout.php">Terminar sessão</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->
@@ -51,7 +51,7 @@
 	<!-- </div> -->
 	<div class="container">
 		<div class="row">
-			<form method="get">
+			<form action="index.php" method="get">
 				{for $i=0 to $nDisciplinas - 1}
 				<div class="col-lg-4">
 					<button type="submit" name="disciplina" value="{$disciplinas[$i][0]}" class="btn btn-info">{$disciplinas[$i][1]}</button>

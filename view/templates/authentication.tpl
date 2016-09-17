@@ -65,9 +65,10 @@
 						<input type="checkbox" value="remember-me"> Remember me
 					  </label>
 					</div>
-					<button class="btn btn-lg btn-primary btn-block" id"loginButton" name="login" type="submit">
+					<!-- <button class="btn btn-lg btn-primary btn-block" id="loginButton" name="login" type="submit">
 						Sign in
-					</button>
+					</button> -->
+					<input class="btn btn-lg btn-primary btn-block" type="submit" value="login" name="login">
 				</form>
 			</div>
 		  </div>

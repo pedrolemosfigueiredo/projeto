@@ -1,7 +1,7 @@
 <?php
-define('SMARTY_DIR','view/smarty/libs/');
+/* define('SMARTY_DIR','view/smarty/libs/');
 define('SMARTY_TPL','view/templates/');
-define('SMARTY_CPL','view/templates/compile/');
+define('SMARTY_CPL','view/templates/compile/'); */
 require_once(SMARTY_DIR.'Smarty.class.php');
 class ProfessorView{
 	var $smarty;

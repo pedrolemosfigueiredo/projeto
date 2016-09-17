@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-02 15:15:14
+/* Smarty version 3.1.30, created on 2016-09-17 09:29:50
   from "C:\wamp64\www\daw\projeto\view\templates\authentication.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57c99782976ff6_41301847',
+  'unifunc' => 'content_57dd0d0e206139_00224282',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '13ed3e2d2f42c8b4fb6c56f29f2d5747a2c041c2' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\authentication.tpl',
-      1 => 1472829310,
+      1 => 1474104588,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57c99782976ff6_41301847 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57dd0d0e206139_00224282 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-pt">
@@ -90,9 +90,10 @@ function content_57c99782976ff6_41301847 (Smarty_Internal_Template $_smarty_tpl)
 						<input type="checkbox" value="remember-me"> Remember me
 					  </label>
 					</div>
-					<button class="btn btn-lg btn-primary btn-block" id"loginButton" name="login" type="submit">
+					<!-- <button class="btn btn-lg btn-primary btn-block" id="loginButton" name="login" type="submit">
 						Sign in
-					</button>
+					</button> -->
+					<input class="btn btn-lg btn-primary btn-block" type="submit" value="login" name="login">
 				</form>
 			</div>
 		  </div>

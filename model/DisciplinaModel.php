@@ -47,6 +47,27 @@ class DisciplinaModel{
 			return false;
 		}
 	}
+	public function getDisciplinasAluno($alunoID){
+		$this->db->connect();
+		$disciplinas = array();
+		$disciplinasID = $this->getDisciplinasIDsFromADs($alunoID);
+		$query = "select * from disciplina where disciplina.numero in (select alunodisciplina.nDisciplina from alunodisciplina where alunodisciplina.nAluno = ".$alunoID.")";
+		$i = 0;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			while($row = mysqli_fetch_array($result)) {
+				$disciplinas[$i] = array($row['numero'],$row['nome']);
+				$i++;
+			}
+			return $disciplinas;
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'este professor não tem disciplinas';
+			$this->db->disconnect();
+			return false;
+		}
+	}
 	public function getEvaluations($disciplina){
 		$this->db->connect();
 		$evaluations = array();
@@ -131,6 +152,26 @@ class DisciplinaModel{
 		} else {
 			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
 			echo 'não existe utilizador';
+			$this->db->disconnect();
+			return false;
+		}
+	}
+	private function getDisciplinasIDsFromADs($adID){
+		$this->db->connect();
+		$disciplinas = array();
+		$query = "select * from alunoDisciplina where nAluno = ".$alunoID;
+		$i = 0;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			while($row = mysqli_fetch_array($result)) {
+				$disciplinasID[$i] = $row['numero'];
+				$i++;
+			}
+			return $disciplinasID;
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'este aluno não tem disciplinas';
 			$this->db->disconnect();
 			return false;
 		}

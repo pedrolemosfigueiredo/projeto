@@ -30,8 +30,8 @@ class ProfessorController{
 			$this->professorView->drawEvaluationChanges($disciplina, $evaluation, $notas);
 		} */
 		else{
-			$professorID = $this->userModel->getProfessorID($username);
-			$professorName = $this->userModel->getUserName($username);
+			/* $professorID = $this->userModel->getProfessorID($username);
+			$professorName = $this->userModel->getUserName($username); */
 			$disciplinas = $this->disciplinaModel->getDisciplinasLecionadas($professorID);
 			$this->professorView->drawDisciplineButtons($disciplinas);
 			

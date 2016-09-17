@@ -13,19 +13,6 @@ class AuthenticationController{
 	}
 	public function action(){
 		//$_SESSION['loggedin']= false;
-		if(isset($_SESSION['loggedin'])&& $_SESSION['loggedin'] == true){
-			if($_SESSION['type'] == 'aluno'){
-				$this->alunoController->action($_SESSION["user"]);
-			}else if($_SESSION['type'] == 'professor'){
-				$this->professorController->action($_SESSION["user"]);
-			}
-		}else if(!isset($_SESSION['situation'])||$_SESSION['situation'] == 'normal'){
-			$this->authenticationView->drawAuthenticationPage('normal');
-		}else{
-			$situation = $_SESSION['situation'];
-			$_SESSION['situation'] = 'normal';
-			$this->authenticationView->drawAuthenticationPage($situation);
-		}
 		if($_SERVER['REQUEST_METHOD']=='POST'){
 			if(isset($_POST['login'])){
 				$username = $_POST['username'];
@@ -53,6 +40,18 @@ class AuthenticationController{
 				}
 				//header('Location: '.$_SERVER['REQUEST_URI']);
 			}
+		}else if(isset($_SESSION['loggedin'])&& $_SESSION['loggedin'] == true){
+			if($_SESSION['type'] == 'aluno'){
+				$this->alunoController->action($_SESSION["user"]);
+			}else if($_SESSION['type'] == 'professor'){
+				$this->professorController->action($_SESSION["user"]);
+			}
+		}else if(!isset($_SESSION['situation'])||$_SESSION['situation'] == 'normal'){
+			$this->authenticationView->drawAuthenticationPage('normal');
+		}else{
+			$situation = $_SESSION['situation'];
+			$_SESSION['situation'] = 'normal';
+			$this->authenticationView->drawAuthenticationPage($situation);
 		}
 	}
 	

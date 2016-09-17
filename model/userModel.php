@@ -71,6 +71,19 @@ require_once('model/DataBaseConnection.php');
 				return 'error';
 			}
 		}
+		public function getAlunoID($username){
+			$this->db->connect();
+			$query = "SELECT numero FROM `aluno` WHERE nUser = ".$username;
+			$result = mysqli_query($this->db->getConnection(), $query);
+			if($result){
+				$row = mysqli_fetch_array($result);
+				$this->db->disconnect();
+				return $row['numero'];
+			} else{
+				$this->db->disconnect();
+				return 'error';
+			}
+		}
 		private function getUserNameIsValid($username){
 			$this->db->connect();
 			if(is_numeric($username)){
