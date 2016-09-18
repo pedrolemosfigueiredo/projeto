@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-17 14:14:33
+/* Smarty version 3.1.30, created on 2016-09-18 18:09:29
   from "C:\wamp64\www\daw\projeto\view\templates\alunoHomePage.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57dd4fc9d1a382_94063579',
+  'unifunc' => 'content_57ded8599bfec6_59173302',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1fceb2bb52e7be52a54f16a27ef70903db006dc6' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoHomePage.tpl',
-      1 => 1474121670,
+      1 => 1474222162,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57dd4fc9d1a382_94063579 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57ded8599bfec6_59173302 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -52,7 +52,7 @@ function content_57dd4fc9d1a382_94063579 (Smarty_Internal_Template $_smarty_tpl)
 			  </div>
 			  <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-				  <li class="active"><a href="#">Home</a></li>
+				  <li class="active"><a href="media.php">ver Média</a></li>
 				  <li><a href="#">About</a></li>
 				  <li><a href="#">Contact</a></li>
 				  <li class="dropdown">

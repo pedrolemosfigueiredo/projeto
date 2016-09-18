@@ -22,5 +22,10 @@ class AlunoView{
 		$this->smarty->assign('nNotas', $numberOfNotas);
 		$this->smarty->display('alunoNotas.tpl');
 	}
+	public function drawMedia($alunoName, $notaMedia){
+		$this->smarty->assign('name', $alunoName);
+		$this->smarty->assign('media', $notaMedia);
+		$this->smarty->display('alunoMedia.tpl');
+	}
 }
 ?>

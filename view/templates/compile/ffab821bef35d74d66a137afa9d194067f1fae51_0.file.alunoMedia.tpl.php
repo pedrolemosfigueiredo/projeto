@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2016-09-18 18:10:49
+  from "C:\wamp64\www\daw\projeto\view\templates\alunoMedia.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_57ded8a939baf8_80260178',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ffab821bef35d74d66a137afa9d194067f1fae51' => 
+    array (
+      0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoMedia.tpl',
+      1 => 1474222006,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_57ded8a939baf8_80260178 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="pt-PT">
     <head>
@@ -9,10 +33,8 @@
 		<link rel="stylesheet" href="view/bootstrap/css/bootstrap.min.css">
 		<link href="view/css/navbar.css" rel="stylesheet">
 		<link href="view/css/jumbotron.css" rel="stylesheet">
-		<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 	</head>
 	<body>
-	<!-- <div class="container"> -->
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 			  <div class="navbar-header">
@@ -48,20 +70,20 @@
 			  </div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->
 		</nav>
-	<!-- </div> -->
-	<div class="container">
-		<div class="row">
-			<form action="index.php" method="get">
-				{for $i=0 to $nDisciplinas - 1}
-				<div class="col-lg-4">
-					<button type="submit" name="disciplina" value="{$disciplinas[$i][0]}" class="btn btn-info">{$disciplinas[$i][1]}</button>
-				</div>
-				{/for}
-			</form>
+		<div class="container disciplinas">
+			<h2>A sua média é de <?php echo $_smarty_tpl->tpl_vars['media']->value;?>
+ valores<h2>
 		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
-	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+		<?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+>window.jQuery || document.write('<?php echo '<script'; ?>
+ src="view/bootstrap/js/jquery.min.js"><\/script>')<?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+ src="view/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 	</body>
-</html>
+</html><?php }
+}

@@ -9,10 +9,8 @@
 		<link rel="stylesheet" href="view/bootstrap/css/bootstrap.min.css">
 		<link href="view/css/navbar.css" rel="stylesheet">
 		<link href="view/css/jumbotron.css" rel="stylesheet">
-		<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 	</head>
 	<body>
-	<!-- <div class="container"> -->
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 			  <div class="navbar-header">
@@ -48,20 +46,11 @@
 			  </div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->
 		</nav>
-	<!-- </div> -->
-	<div class="container">
-		<div class="row">
-			<form action="index.php" method="get">
-				{for $i=0 to $nDisciplinas - 1}
-				<div class="col-lg-4">
-					<button type="submit" name="disciplina" value="{$disciplinas[$i][0]}" class="btn btn-info">{$disciplinas[$i][1]}</button>
-				</div>
-				{/for}
-			</form>
+		<div class="container disciplinas">
+			<h2>A sua média é de {$media} valores<h2>
 		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
-	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>
+		<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

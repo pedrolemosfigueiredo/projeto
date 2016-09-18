@@ -52,7 +52,6 @@ class AuthenticationController{
 			$this->authenticationView->drawAuthenticationPage($situation);
 		}
 	}
-	
 	private function getUserType($username){
 		$isALuno = $this->userModel->checkIfIsAluno($username);
 		if($isALuno){return 'aluno';}
@@ -60,7 +59,13 @@ class AuthenticationController{
 		if($isProfessor){return 'professor';}
 		else{return 'error';}
 	}
-	
+	public function media(){
+		if(isset($_SESSION['loggedin'])&& $_SESSION['loggedin'] == true && $_SESSION['type'] == 'aluno'){
+			$this->alunoController->media($_SESSION["user"]);
+		}else{
+			$this->authenticationView->drawAuthenticationPage($_SESSION['situation']);
+		}
+	}
 	public function authenticationFailed(){
 		
 	}
