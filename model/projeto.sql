@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2016 at 10:07 PM
+-- Generation Time: Sep 19, 2016 at 06:24 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -31,6 +31,14 @@ CREATE TABLE `aluno` (
   `nUser` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `aluno`
+--
+
+INSERT INTO `aluno` (`numero`, `nUser`) VALUES
+(1, 2),
+(2, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +52,15 @@ CREATE TABLE `alunodisciplina` (
   `notaFinal` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `alunodisciplina`
+--
+
+INSERT INTO `alunodisciplina` (`numero`, `nAluno`, `nDisciplina`, `notaFinal`) VALUES
+(1, 1, 1, 13),
+(2, 2, 1, NULL),
+(3, 1, 2, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -55,8 +72,21 @@ CREATE TABLE `avaliacao` (
   `nome` varchar(30) NOT NULL,
   `tipo` varchar(15) NOT NULL,
   `valor` int(3) NOT NULL,
-  `nDisciplina` int(8) NOT NULL
+  `nDisciplina` int(8) NOT NULL,
+  `notaMinima` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `avaliacao`
+--
+
+INSERT INTO `avaliacao` (`numero`, `nome`, `tipo`, `valor`, `nDisciplina`, `notaMinima`) VALUES
+(1, 'teste 1', 'normal', 25, 1, NULL),
+(2, 'teste 2', 'normal', 25, 1, NULL),
+(3, 'trabalho', 'normal', 50, 1, NULL),
+(4, 'teste 1', 'normal', 30, 2, 5),
+(5, 'teste 2', 'normal', 30, 2, NULL),
+(6, 'trabalho', 'normal', 40, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -69,6 +99,13 @@ CREATE TABLE `curso` (
   `nome` varchar(40) NOT NULL,
   `totalECTS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `curso`
+--
+
+INSERT INTO `curso` (`numero`, `nome`, `totalECTS`) VALUES
+(1, 'Engenharia Informática', 180);
 
 -- --------------------------------------------------------
 
@@ -97,6 +134,14 @@ CREATE TABLE `disciplina` (
   `nCurso` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `disciplina`
+--
+
+INSERT INTO `disciplina` (`numero`, `nome`, `nProfessor`, `ECTS`, `nCurso`) VALUES
+(1, 'Desenvolvimento de Aplicações Web', 1, 6, 1),
+(2, 'Tecnologias para a Web e Ambiente Móveis', 1, 6, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +155,21 @@ CREATE TABLE `nota` (
   `nota` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `nota`
+--
+
+INSERT INTO `nota` (`numero`, `nAlunoDisciplina`, `nAvaliacao`, `nota`) VALUES
+(1, 1, 1, 10),
+(2, 1, 2, 10),
+(3, 1, 3, 15),
+(4, 2, 1, NULL),
+(5, 2, 2, NULL),
+(6, 2, 3, NULL),
+(7, 3, 4, NULL),
+(8, 3, 5, NULL),
+(9, 3, 6, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -120,6 +180,13 @@ CREATE TABLE `professor` (
   `numero` int(5) NOT NULL,
   `nUser` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `professor`
+--
+
+INSERT INTO `professor` (`numero`, `nUser`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -132,6 +199,15 @@ CREATE TABLE `user` (
   `passe` varchar(100) NOT NULL,
   `nome` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`numero`, `passe`, `nome`) VALUES
+(1, ' ', 'Luis Bruno'),
+(2, ' ', 'Pedro Figueiredo'),
+(3, ' ', 'Alexandre');
 
 --
 -- Indexes for dumped tables
@@ -203,7 +279,8 @@ ALTER TABLE `professor`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`numero`);
+  ADD PRIMARY KEY (`numero`),
+  ADD UNIQUE KEY `numero` (`numero`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -213,22 +290,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `numero` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `alunodisciplina`
 --
 ALTER TABLE `alunodisciplina`
-  MODIFY `numero` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `numero` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `numero` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `cursoaluno`
 --
@@ -238,22 +315,22 @@ ALTER TABLE `cursoaluno`
 -- AUTO_INCREMENT for table `disciplina`
 --
 ALTER TABLE `disciplina`
-  MODIFY `numero` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `nota`
 --
 ALTER TABLE `nota`
-  MODIFY `numero` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `numero` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `numero` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
