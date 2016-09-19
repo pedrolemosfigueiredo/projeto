@@ -28,7 +28,6 @@ class AuthenticationController{
 				if($userType == 'aluno'){
 					$this->alunoController->action($username);
 				}else if($userType == 'professor'){
-					echo "hello";
 					$this->professorController->action($username);
 				}
 			}else if($authentication == 'password fail'){

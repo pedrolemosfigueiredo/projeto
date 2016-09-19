@@ -151,6 +151,21 @@ class DisciplinaModel{
 			return false;
 		}
 	}
+	private function getDisciplinaWithAD($alunoDisciplina){
+		$this->db->connect();
+		$query = "select * from alunodisciplina where numero = ".$alunoDisciplina;
+		$result = mysqli_query($this->db->getConnection(), $query);
+		if ($result) {
+			$this->db->disconnect();
+			$row = mysqli_fetch_array($result);
+			return $row['nDisciplina'];	
+		} else {
+			//printf("Errormessage: %s\n", mysqli_error($this->db->getConnection()));
+			echo 'não existe aluno';
+			$this->db->disconnect();
+			return false;
+		}
+	}
 	private function getUSerIdFromAluno($alunoID){
 		$this->db->connect();
 		$query = "select * from aluno where numero = ".$alunoID;
@@ -309,7 +324,7 @@ class DisciplinaModel{
 			return false;
 		}
 	}
-	private function getECTS($disciplinaID){
+	public function getECTS($disciplinaID){
 		$this->db->connect();
 		$query = "select * from disciplina where numero = ".$disciplinaID;
 		$result = mysqli_query($this->db->getConnection(), $query);
@@ -337,7 +352,9 @@ class DisciplinaModel{
 	}
 	public function setNotaFinal($alunoDisciplinaID){
 		$x = 0;
-		$notas = $this->getNotasWithAlunoAndDisciplina($alunoDisciplinaID);
+		$alunoID =$this->getAlunoWithAD($alunoDisciplinaID);
+		$disciplinaID = $this->getDisciplinaWithAD($alunoDisciplinaID);
+		$notas = $this->getNotasWithAlunoAndDisciplina($alunoID, $disciplinaID);
 		$nNotas = count($notas);
 		$differentEvaluations = array();
 		$notasMaisAltas = array();
@@ -348,6 +365,7 @@ class DisciplinaModel{
 				$x++;
 			}
 		}
+		
 		$nNotasMaisAltas = count($notasMaisAltas);
 		for($i=0; $i<$nNotas; $i++){
 			for($j=0; $j<$nNotasMaisAltas;$j++){
@@ -358,7 +376,7 @@ class DisciplinaModel{
 				}
 			}
 		}
-		$notaSemiFinal;
+		$notaSemiFinal = 0;
 		$fracaoNota;
 		for($i=0; $i<$nNotasMaisAltas; $i++){
 			if(is_null($notasMaisAltas[$i][1])){return 0;}

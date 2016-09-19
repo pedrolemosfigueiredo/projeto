@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-17 18:53:31
+/* Smarty version 3.1.30, created on 2016-09-19 17:29:10
   from "C:\wamp64\www\daw\projeto\view\templates\alunoNotas.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57dd912b6964b0_90849124',
+  'unifunc' => 'content_57e02066a12160_88184279',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5e13549aff2f365b17294252fb1492a335267100' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoNotas.tpl',
-      1 => 1474138410,
+      1 => 1474306149,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57dd912b6964b0_90849124 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e02066a12160_88184279 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -48,21 +48,7 @@ function content_57dd912b6964b0_90849124 (Smarty_Internal_Template $_smarty_tpl)
 			  </div>
 			  <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-				  <li class="active"><a href="#">Home</a></li>
-				  <li><a href="#">About</a></li>
-				  <li><a href="#">Contact</a></li>
-				  <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-					  <li><a href="#">Action</a></li>
-					  <li><a href="#">Another action</a></li>
-					  <li><a href="#">Something else here</a></li>
-					  <li role="separator" class="divider"></li>
-					  <li class="dropdown-header">Nav header</li>
-					  <li><a href="#">Separated link</a></li>
-					  <li><a href="#">One more separated link</a></li>
-					</ul>
-				  </li>
+				  <li class="active"><a href="media.php">ver Média</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				  <li><a href="controller/logout.php">Terminar sessão</a></li>

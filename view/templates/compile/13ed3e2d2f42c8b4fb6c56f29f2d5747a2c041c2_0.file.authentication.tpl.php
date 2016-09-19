@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-17 09:29:50
+/* Smarty version 3.1.30, created on 2016-09-19 16:57:10
   from "C:\wamp64\www\daw\projeto\view\templates\authentication.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57dd0d0e206139_00224282',
+  'unifunc' => 'content_57e018e678c087_73470339',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '13ed3e2d2f42c8b4fb6c56f29f2d5747a2c041c2' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\authentication.tpl',
-      1 => 1474104588,
+      1 => 1474304228,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57dd0d0e206139_00224282 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e018e678c087_73470339 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-pt">
@@ -47,24 +47,6 @@ function content_57dd0d0e206139_00224282 (Smarty_Internal_Template $_smarty_tpl)
 			  <a class="navbar-brand" href="#">Sistema de gestão de notas</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
-			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li class="dropdown">
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-					aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-				  <ul class="dropdown-menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li role="separator" class="divider"></li>
-					<li class="dropdown-header">Nav header</li>
-					<li><a href="#">Separated link</a></li>
-					<li><a href="#">One more separated link</a></li>
-				  </ul>
-				</li>
-			  </ul>
 			</div>
 		  </div>
 		</nav>

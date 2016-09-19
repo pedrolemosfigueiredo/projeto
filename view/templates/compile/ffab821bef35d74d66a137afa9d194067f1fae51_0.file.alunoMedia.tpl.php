@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-18 18:10:49
+/* Smarty version 3.1.30, created on 2016-09-19 17:41:02
   from "C:\wamp64\www\daw\projeto\view\templates\alunoMedia.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57ded8a939baf8_80260178',
+  'unifunc' => 'content_57e0232ecf0041_45332184',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ffab821bef35d74d66a137afa9d194067f1fae51' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoMedia.tpl',
-      1 => 1474222006,
+      1 => 1474306856,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57ded8a939baf8_80260178 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e0232ecf0041_45332184 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -49,20 +49,6 @@ function content_57ded8a939baf8_80260178 (Smarty_Internal_Template $_smarty_tpl)
 			  <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 				  <li class="active"><a href="media.php">ver Média</a></li>
-				  <li><a href="#">About</a></li>
-				  <li><a href="#">Contact</a></li>
-				  <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-					  <li><a href="#">Action</a></li>
-					  <li><a href="#">Another action</a></li>
-					  <li><a href="#">Something else here</a></li>
-					  <li role="separator" class="divider"></li>
-					  <li class="dropdown-header">Nav header</li>
-					  <li><a href="#">Separated link</a></li>
-					  <li><a href="#">One more separated link</a></li>
-					</ul>
-				  </li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				  <li><a href="controller/logout.php">Terminar sessão</a></li>

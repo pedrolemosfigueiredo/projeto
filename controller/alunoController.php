@@ -26,16 +26,19 @@ class AlunoController{
 		$notaMedia = $this->getnotaMedia($username);
 		$this->alunoView->drawMedia($username, $notaMedia);
 	}
-	public function getnotaMedia($alunoID){
+	public function getnotaMedia($username){
+		$alunoID = $this->userModel->getAlunoID($username);
 		$alunoDisciplinas = $this->disciplinaModel->getAlunoDisciplinasFromALuno($alunoID);
 		$i = 0;
-		$notasECTSMultiplied;
-		$ectsTotal;
+		$notasECTSMultiplied = 0;
+		$ectsTotal = 0;
 		$nAlunoDisciplinas = count($alunoDisciplinas);
+		echo $nAlunoDisciplinas;
 		if($nAlunoDisciplinas == 0){return 0;}
 		for($i=0; $i<$nAlunoDisciplinas; $i++){
 			$this->disciplinaModel->setNotaFinal($alunoDisciplinas[$i][0]);
 		}
+		$alunoDisciplinas = $this->disciplinaModel->getAlunoDisciplinasFromALuno($alunoID);
 		for($i=0; $i<$nAlunoDisciplinas; $i++){
 			if(!is_null($alunoDisciplinas[$i][2])){
 				$ects = $this->disciplinaModel->getECTS($alunoDisciplinas[$i][0]);
@@ -46,6 +49,7 @@ class AlunoController{
 		}
 		$media = $notasECTSMultiplied / $ectsTotal;
 		$media = round($media, 2);
+		return $media;
 	}
 }
 ?>
