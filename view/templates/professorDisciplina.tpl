@@ -34,7 +34,7 @@
 				<form method="get">
 					{for $i=0 to $nEvaluations - 1}
 					<div class="col-lg-4">
-						<button type="submit" name="evaluation" value="{$evaluations[$i][0]}" class="btn btn-info">{$evaluations[$i][1]} ({$evaluations[$i][2]})</button>
+						<button type="submit" name="evaluation" value="{$evaluations[$i][0]}" class="btn btn-info">{$evaluations[$i][1]} ({$evaluations[$i][2]})</button><p/>
 					</div>
 					{/for}
 				</form>

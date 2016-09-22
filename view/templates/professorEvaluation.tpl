@@ -33,8 +33,8 @@
 			<div class="row">
 				<form method="post" action="index.php">
 					{for $i=0 to $nNotas - 1}
-						<label for="nota[{$notas[$i][0]}]">{$notas[$i][2]}</label>
-						<input type="number" name="nota[{$notas[$i][0]}]" min="0" max="20" value="{$notas[$i][1]}">
+						<label for="nota[{$notas[$i][0]}]">{$notas[$i][2]}</label><br>
+						<input type="number" name="nota[{$notas[$i][0]}]" min="0" max="20" value="{$notas[$i][1]}"><p/>
 					{/for}
 					<input type="hidden" name="evaluation" value="{$evaluation} "/>
 					<input type="submit" name="changeGrades" value="Guardar"></input>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-19 17:41:02
+/* Smarty version 3.1.30, created on 2016-09-22 19:21:45
   from "C:\wamp64\www\daw\projeto\view\templates\alunoMedia.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57e0232ecf0041_45332184',
+  'unifunc' => 'content_57e42f49494da7_27252288',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ffab821bef35d74d66a137afa9d194067f1fae51' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoMedia.tpl',
-      1 => 1474306856,
+      1 => 1474572102,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57e0232ecf0041_45332184 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e42f49494da7_27252288 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -57,8 +57,12 @@ function content_57e0232ecf0041_45332184 (Smarty_Internal_Template $_smarty_tpl)
 			</div><!--/.container-fluid -->
 		</nav>
 		<div class="container disciplinas">
-			<h2>A sua média é de <?php echo $_smarty_tpl->tpl_vars['media']->value;?>
+			<?php if ($_smarty_tpl->tpl_vars['media']->value == false) {?>
+				<h2>O aluno ainda não completou nenhuma disciplina<h2>
+			<?php } else { ?>
+				<h2>A sua média é de <?php echo $_smarty_tpl->tpl_vars['media']->value;?>
  valores<h2>
+			<?php }?>
 		</div>
 		<?php echo '<script'; ?>
  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><?php echo '</script'; ?>

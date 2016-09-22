@@ -296,13 +296,16 @@ class DisciplinaModel{
 	}
 	public function changeGrades($notas){
 		$sizeNotas = count($notas);
+		$result;
 		for($i=0; $i<$sizeNotas; $i++){
 			$this->db->connect();
 			$query = "update nota set nota = ".$notas[$i][1]." where numero = ".$notas[$i][0];
 			$result = mysqli_query($this->db->getConnection(), $query);
-			if($result){return true;}
-			else{return false;}
+			
+			
 		}
+		if($result){return true;}
+		else{return false;}
 	}
 	public function getAlunoDisciplinasFromALuno($alunoID){
 		$this->db->connect();

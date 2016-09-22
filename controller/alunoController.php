@@ -33,11 +33,11 @@ class AlunoController{
 		$notasECTSMultiplied = 0;
 		$ectsTotal = 0;
 		$nAlunoDisciplinas = count($alunoDisciplinas);
-		echo $nAlunoDisciplinas;
 		if($nAlunoDisciplinas == 0){return 0;}
 		for($i=0; $i<$nAlunoDisciplinas; $i++){
 			$this->disciplinaModel->setNotaFinal($alunoDisciplinas[$i][0]);
 		}
+		$nDisciplinasFinished = 0;
 		$alunoDisciplinas = $this->disciplinaModel->getAlunoDisciplinasFromALuno($alunoID);
 		for($i=0; $i<$nAlunoDisciplinas; $i++){
 			if(!is_null($alunoDisciplinas[$i][2])){
@@ -45,11 +45,16 @@ class AlunoController{
 				$notaECTSMultiplied = $alunoDisciplinas[$i][2] * $ects;
 				$notasECTSMultiplied = $notasECTSMultiplied + $notaECTSMultiplied;
 				$ectsTotal = $ectsTotal + $ects;
+				$nDisciplinasFinished = $nDisciplinasFinished + 1;
 			}
 		}
-		$media = $notasECTSMultiplied / $ectsTotal;
-		$media = round($media, 2);
-		return $media;
+		if($nDisciplinasFinished == 0){
+			return false;
+		}else{
+			$media = $notasECTSMultiplied / ($ectsTotal * $nDisciplinasFinished);
+			$media = round($media, 2);
+			return $media;
+		}
 	}
 }
 ?>

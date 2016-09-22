@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-19 17:04:25
+/* Smarty version 3.1.30, created on 2016-09-22 18:49:33
   from "C:\wamp64\www\daw\projeto\view\templates\professorDisciplina.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57e01a99155498_85498015',
+  'unifunc' => 'content_57e427bd8cc133_87061938',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7bdb862605779daafbd1d358b865bf23f14e5086' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\professorDisciplina.tpl',
-      1 => 1474304663,
+      1 => 1474479458,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57e01a99155498_85498015 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e427bd8cc133_87061938 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -65,7 +65,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 						<button type="submit" name="evaluation" value="<?php echo $_smarty_tpl->tpl_vars['evaluations']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
 " class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['evaluations']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
  (<?php echo $_smarty_tpl->tpl_vars['evaluations']->value[$_smarty_tpl->tpl_vars['i']->value][2];?>
-)</button>
+)</button><p/>
 					</div>
 					<?php }
 }

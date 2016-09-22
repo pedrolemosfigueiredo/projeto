@@ -33,7 +33,11 @@
 			</div><!--/.container-fluid -->
 		</nav>
 		<div class="container disciplinas">
-			<h2>A sua média é de {$media} valores<h2>
+			{if $media == false}
+				<h2>O aluno ainda não completou nenhuma disciplina<h2>
+			{else}
+				<h2>A sua média é de {$media} valores<h2>
+			{/if}
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="view/bootstrap/js/jquery.min.js"><\/script>')</script>

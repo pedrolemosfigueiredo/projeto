@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-19 17:25:42
+/* Smarty version 3.1.30, created on 2016-09-21 17:14:42
   from "C:\wamp64\www\daw\projeto\view\templates\professorEvaluation.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57e01f968144d3_48467760',
+  'unifunc' => 'content_57e2c002a0ee53_83325388',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a900a2c4e0dd161dd4dd21a66168858d101be455' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\professorEvaluation.tpl',
-      1 => 1474305935,
+      1 => 1474478081,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57e01f968144d3_48467760 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e2c002a0ee53_83325388 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -63,10 +63,10 @@ for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iterat
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
 						<label for="nota[<?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
 ]"><?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][2];?>
-</label>
+</label><br>
 						<input type="number" name="nota[<?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
 ]" min="0" max="20" value="<?php echo $_smarty_tpl->tpl_vars['notas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
-">
+"><p/>
 					<?php }
 }
 ?>

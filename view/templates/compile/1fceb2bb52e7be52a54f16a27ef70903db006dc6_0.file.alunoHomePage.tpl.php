@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-09-19 17:27:36
+/* Smarty version 3.1.30, created on 2016-09-22 19:04:22
   from "C:\wamp64\www\daw\projeto\view\templates\alunoHomePage.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57e0200804a5c0_74291479',
+  'unifunc' => 'content_57e42b36637af2_72235193',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1fceb2bb52e7be52a54f16a27ef70903db006dc6' => 
     array (
       0 => 'C:\\wamp64\\www\\daw\\projeto\\view\\templates\\alunoHomePage.tpl',
-      1 => 1474306052,
+      1 => 1474479469,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57e0200804a5c0_74291479 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57e42b36637af2_72235193 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -72,7 +72,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 				<div class="col-lg-4">
 					<button type="submit" name="disciplina" value="<?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][0];?>
 " class="btn btn-info"><?php echo $_smarty_tpl->tpl_vars['disciplinas']->value[$_smarty_tpl->tpl_vars['i']->value][1];?>
-</button>
+</button><p/>
 				</div>
 				<?php }
 }
