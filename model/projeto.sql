@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2016 at 06:24 PM
+-- Generation Time: Sep 22, 2016 at 07:28 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -163,7 +163,7 @@ INSERT INTO `nota` (`numero`, `nAlunoDisciplina`, `nAvaliacao`, `nota`) VALUES
 (1, 1, 1, 10),
 (2, 1, 2, 10),
 (3, 1, 3, 15),
-(4, 2, 1, NULL),
+(4, 2, 1, 10),
 (5, 2, 2, NULL),
 (6, 2, 3, NULL),
 (7, 3, 4, NULL),

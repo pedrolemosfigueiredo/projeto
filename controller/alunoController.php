@@ -41,17 +41,21 @@ class AlunoController{
 		$alunoDisciplinas = $this->disciplinaModel->getAlunoDisciplinasFromALuno($alunoID);
 		for($i=0; $i<$nAlunoDisciplinas; $i++){
 			if(!is_null($alunoDisciplinas[$i][2])){
-				$ects = $this->disciplinaModel->getECTS($alunoDisciplinas[$i][0]);
+				$ects = $this->disciplinaModel->getECTS($alunoDisciplinas[$i][1]);
 				$notaECTSMultiplied = $alunoDisciplinas[$i][2] * $ects;
 				$notasECTSMultiplied = $notasECTSMultiplied + $notaECTSMultiplied;
 				$ectsTotal = $ectsTotal + $ects;
 				$nDisciplinasFinished = $nDisciplinasFinished + 1;
+				//echo $ects;
+				echo $alunoDisciplinas[$i][0];
 			}
+			
 		}
+		//echo $alunoDisciplinas[1][2];
 		if($nDisciplinasFinished == 0){
 			return false;
 		}else{
-			$media = $notasECTSMultiplied / ($ectsTotal * $nDisciplinasFinished);
+			$media = $notasECTSMultiplied / ($ectsTotal);
 			$media = round($media, 2);
 			return $media;
 		}
